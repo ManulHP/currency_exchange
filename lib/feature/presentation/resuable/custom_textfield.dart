@@ -31,30 +31,25 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-
   @override
   Widget build(BuildContext context) {
     return Column(
-      // clipBehavior: Clip.none,
       children: [
         Container(
           height: 67.h,
           padding: EdgeInsets.symmetric(horizontal: 18.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.r),
-            color: Color(0xFF262425),
+            color: const Color(0xFF262425),
           ),
           child: Row(
             children: [
               Expanded(
                 child: Center(
                   child: TextFormField(
-                    
                     controller: widget.textController,
                     focusNode: widget.focusNode,
-                    
                     keyboardType: widget.keyboardType,
-                    
                     inputFormatters: widget.inputFormatter,
                     onChanged: (text) {
                       if (widget.onChanged != null) {
@@ -85,11 +80,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                               fontSize: 20.sp,
                               color: Colors.white,
                             ),
-                     
                       hintText: widget.hint.isEmpty ? null : widget.hint,
                     ),
-                  
-                    obscuringCharacter: '●',
                   ),
                 ),
               ),

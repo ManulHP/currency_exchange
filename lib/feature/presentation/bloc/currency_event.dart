@@ -1,10 +1,13 @@
 part of 'currency_bloc.dart';
 
-/// The events are used to trigger the state changes in the bloc.
-/// The events are GetAmount, GetBaseCountry, GetTargetCountry, and GetExchangeRate.
+/// Events are used to trigger the state changes in the bloc.
+/// 
 /// GetAmount event is used to get the amount to be converted.
+/// 
 /// GetBaseCountry event is used to get the base country code.
+/// 
 /// GetTargetCountry event is used to get the target country code.
+/// 
 /// GetExchangeRate event is used to get the exchange rate.
 
 abstract class CurrencyEvent extends Equatable {

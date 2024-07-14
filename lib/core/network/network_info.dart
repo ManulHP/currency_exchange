@@ -13,5 +13,4 @@ class InternetInfoImpl implements InternetInfo {
 
   @override
   Future<bool> get isConnectedToInternet => connectionChecker.hasConnection;
-
 }

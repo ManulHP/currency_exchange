@@ -1,3 +1,4 @@
+// Country code for the drop down menu
 List countryCode = [
   "USD",
   "IDR",
