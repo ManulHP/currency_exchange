@@ -20,7 +20,7 @@ class CurrencyUsecase implements UseCase<CurrencyEntity, CurrencyParams> {
 class CurrencyParams extends Equatable {
   final String base;
   final String target;
-  final double amount;
+  final String amount;
 
   const CurrencyParams({required this.base, required this.target, required this.amount});
 

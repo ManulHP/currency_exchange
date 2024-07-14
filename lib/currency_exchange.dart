@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'feature/presentation/home.dart';
 
@@ -19,6 +20,13 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
         builder: (context, child) {
           return MaterialApp(
             showPerformanceOverlay: false,
+            builder: (context, child) {
+              child = EasyLoading.init()(context, child);
+              return ScrollConfiguration(
+                behavior: AppBehavior(),
+                child: child,
+              );
+            },
             debugShowCheckedModeBanner: false,
             title: 'Currency code',
             theme: ThemeData(
