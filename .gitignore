@@ -41,3 +41,21 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+assets/**/*.zip
+pubspec.lock
+
+*.zip
+*.apk
+
+# Android related
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+# Exceptions to the above rules
+build/
