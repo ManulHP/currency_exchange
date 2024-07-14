@@ -1,3 +1,4 @@
+import 'package:currency_exchange/util/api_endpoint.dart';
 import 'package:dio/dio.dart';
 
 /// This class is used to define Dio
@@ -9,15 +10,15 @@ import 'package:dio/dio.dart';
 /// The class can have multiple Dio objects for different purposes
 
 class DioClient {
-  Dio auth;
+  Dio public;
 
   DioClient({
-    required this.auth,
+    required this.public,
   }) {
-    auth.options = BaseOptions(
-      baseUrl:"",
+    public.options = BaseOptions(
+      baseUrl: ApiEndpoint.baseUrl,
       connectTimeout: const Duration(milliseconds: 15000),
-      receiveTimeout: const Duration(milliseconds: 15000),
+      receiveTimeout: const Duration(milliseconds: 15000)
     );
   }
 }

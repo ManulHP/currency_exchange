@@ -22,6 +22,9 @@ dependencies:
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   flutter_screenutil: ^5.9.0
+  flutter_easyloading: ^3.0.5
+  hydrated_bloc: ^9.1.4
+  path_provider: ^2.1.0
 
 dev_dependencies:
   flutter_test:

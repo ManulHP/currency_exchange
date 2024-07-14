@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'core/bloc/local_data/local_data_bloc.dart';
 import 'feature/presentation/home.dart';
+import 'injector.dart';
+
+class CurrencyExchangeWrapper extends StatelessWidget {
+  const CurrencyExchangeWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LocalDataBloc>(
+          create: (context) => sl<LocalDataBloc>(),
+        ),
+      ],
+      child: const CurrencyExchange(),
+    );
+  }
+}
 
 class CurrencyExchange extends StatefulWidget {
   const CurrencyExchange({super.key});
@@ -20,8 +39,15 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
         builder: (context, child) {
           return MaterialApp(
             showPerformanceOverlay: false,
+            builder: (context, child) {
+              child = EasyLoading.init()(context, child);
+              return ScrollConfiguration(
+                behavior: AppBehavior(),
+                child: child,
+              );
+            },
             debugShowCheckedModeBanner: false,
-            title: 'Song App',
+            title: 'Currency code',
             theme: ThemeData(
               primarySwatch: Colors.blue,
               textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
@@ -29,7 +55,7 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
             home: child,
           );
         },
-        child: const HomeScreen()
+        child: const HomeScreenWrapper()
     );
   }
 }
