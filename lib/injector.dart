@@ -20,12 +20,12 @@ Future<void> setupLocators() async {
   sl.registerLazySingleton<InternetInfo>(() => InternetInfoImpl(connectionChecker: sl()));
   sl.registerLazySingleton<InternetConnectionChecker>(() => InternetConnectionChecker());
 
-  /// Exchange rate
+  /// Feature: Exchange rate
   sl.registerFactory<CurrencyBloc>(() => CurrencyBloc(currencyUsecase: sl()));
   sl.registerLazySingleton<CurrencyUsecase>(() => CurrencyUsecase(currencyRepository: sl()));
   sl.registerLazySingleton<CurrencyRepository>(() => CurrencyRepositoryImpl(internetInfo: sl(), remoteDataSource: sl()));
   sl.registerLazySingleton<CurrencyRemoteDataSource>(() => CurrencyRemoteDataSourceImpl(dioClient: sl()));
 
-  /// Local bloc
+  /// Local storage bloc
   sl.registerLazySingleton<LocalDataBloc>(() => LocalDataBloc());
 }

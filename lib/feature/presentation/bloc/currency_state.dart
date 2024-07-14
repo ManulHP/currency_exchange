@@ -39,5 +39,4 @@ class CurrencyState extends Equatable {
       targetCode: targetCode ?? this.targetCode,
     );
   }
-
 }

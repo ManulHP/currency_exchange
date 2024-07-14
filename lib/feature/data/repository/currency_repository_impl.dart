@@ -8,7 +8,12 @@ import '../../domain/usecase/currency_usecase.dart';
 import '../datasource/currency_remote_datasource.dart';
 
 /// This class is used to define the repository of the application
-/// The class implements HomeRepository which is used to define the methods that are used to interact with the data sources
+/// 
+/// The repository will interact with the data sources and return the result to the usecase.
+/// 
+/// The repository will return a CurrencyEntity object if the process is successful.
+/// 
+/// Otherwise, it will return a Failure object.
 
 class CurrencyRepositoryImpl implements CurrencyRepository {
   final InternetInfo internetInfo;
@@ -21,7 +26,6 @@ class CurrencyRepositoryImpl implements CurrencyRepository {
     if (await internetInfo.isConnectedToInternet) {
       try {
         final data = await remoteDataSource.getCurrencyExchange(params);
-        debugPrint("#99658 $data");
         return Right(data.toEntity());
       } on Exception {
         return const Left(ServerFailure(message: 'Failed to fetch data'));

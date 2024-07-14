@@ -16,9 +16,8 @@ class DioClient {
     required this.public,
   }) {
     public.options = BaseOptions(
-      baseUrl: ApiEndpoint.baseUrl,
-      connectTimeout: const Duration(milliseconds: 15000),
-      receiveTimeout: const Duration(milliseconds: 15000)
-    );
+        baseUrl: ApiEndpoint.baseUrl,
+        connectTimeout: const Duration(milliseconds: 15000),
+        receiveTimeout: const Duration(milliseconds: 15000));
   }
 }

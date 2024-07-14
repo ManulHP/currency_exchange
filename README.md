@@ -11,3 +11,8 @@ This project utilizes the ExchangeRate-API for currency conversion. You can gene
 1. Flutter version 3.19.2 and above
 2. If Enviroment variables are used then edit the configuration file or else run it normally 
 3. To create a API-KEY visit [exchangerate-api](https://www.exchangerate-api.com/)
+
+## Running the project
+1. Clone the reposiotry (main branch)
+2. Open the project using android studio or vs code
+3. If using environment variables, edit the main configuration accordingly; otherwise, run the project normally.

@@ -55,8 +55,7 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
             home: child,
           );
         },
-        child: const HomeScreenWrapper()
-    );
+        child: const HomeScreenWrapper());
   }
 }
 

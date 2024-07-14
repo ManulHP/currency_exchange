@@ -1,10 +1,8 @@
 import 'dart:async';
-
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/error/failure.dart';
 import '../../domain/entity/currency_entity.dart';
 import '../../domain/usecase/currency_usecase.dart';
@@ -34,7 +32,6 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
   }
 
   FutureOr<void> _onGetAmount(GetAmount event, Emitter<CurrencyState> emit) {
-    debugPrint("#88547 amount ${event.amount}");
     emit(state.copyWith(
       amount: event.amount,
       status: CurrencyStatus.initial,
@@ -44,14 +41,14 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
   FutureOr<void> _onGetTargetCountry(GetTargetCountry event, Emitter<CurrencyState> emit) {
     emit(state.copyWith(
       targetCode: event.targetCode,
-      status:   CurrencyStatus.initial,
+      status: CurrencyStatus.initial,
     ));
   }
 
   FutureOr<void> _onGetBaseCountry(GetBaseCountry event, Emitter<CurrencyState> emit) {
     emit(state.copyWith(
       baseCode: event.baseCode,
-      status:   CurrencyStatus.initial,
+      status: CurrencyStatus.initial,
     ));
   }
 
@@ -71,10 +68,8 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
       } else {
         message = "Something went wrong. Please try again later!";
       }
-      debugPrint("#88547 error $message");
       emit(state.copyWith(status: CurrencyStatus.failure, errorMessage: message));
     }, (data) {
-      debugPrint("#88547 success $data");
       emit(state.copyWith(status: CurrencyStatus.success, currencyEntity: data));
     });
   }
