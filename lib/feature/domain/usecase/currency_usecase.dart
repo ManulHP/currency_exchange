@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-
 import '../../../core/error/failure.dart';
 import '../../../core/usecase/usecase.dart';
 import '../entity/currency_entity.dart';
 import '../repository/currency_repository.dart';
+
+/// Business logic for the currency conversion.
 
 class CurrencyUsecase implements UseCase<CurrencyEntity, CurrencyParams> {
   final CurrencyRepository currencyRepository;
@@ -16,6 +17,8 @@ class CurrencyUsecase implements UseCase<CurrencyEntity, CurrencyParams> {
     return await currencyRepository.getCurrencyExchange(param);
   }
 }
+
+/// Parameters of the currency conversion.
 
 class CurrencyParams extends Equatable {
   final String base;

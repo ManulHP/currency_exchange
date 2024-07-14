@@ -7,6 +7,9 @@ import '../../domain/repository/currency_repository.dart';
 import '../../domain/usecase/currency_usecase.dart';
 import '../datasource/currency_remote_datasource.dart';
 
+/// This class is used to define the repository of the application
+/// The class implements HomeRepository which is used to define the methods that are used to interact with the data sources
+
 class CurrencyRepositoryImpl implements CurrencyRepository {
   final InternetInfo internetInfo;
   final CurrencyRemoteDataSource remoteDataSource;

@@ -1,25 +1,19 @@
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'currency_entity.g.dart';
+part 'currency_entity.freezed.dart';
 
-@CopyWith()
-class CurrencyEntity extends Equatable {
-  final String result;
-  final String baseCode;
-  final String targetCode;
-  final double conversionRate;
-  final double conversionResult;
+/// CurrencyEntity class is a data class that holds the data of the currency conversion.
 
+@freezed
+class CurrencyEntity with _$CurrencyEntity {
+  const factory CurrencyEntity({
+    required String result,
+    required String baseCode,
+    required String targetCode,
+    required double conversionRate,
+    required double conversionResult,
+  }) = _CurrencyEntity;
 
-  const CurrencyEntity({
-    required this.result,
-    required this.baseCode,
-    required this.targetCode,
-    required this.conversionRate,
-    required this.conversionResult,
-  });
-
-  @override
-  List<Object?> get props => [result, baseCode, targetCode, conversionRate, conversionResult];
+  factory CurrencyEntity.fromJson(Map<String, Object?> json) => _$CurrencyEntityFromJson(json);
 }

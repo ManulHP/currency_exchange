@@ -15,8 +15,8 @@ class CurrencyState extends Equatable {
     this.status = CurrencyStatus.initial,
     this.currencyEntity,
     this.amount = "",
-    this.baseCode = "USD",
-    this.targetCode = "IDR",
+    this.baseCode = "LKR",
+    this.targetCode = "USD",
   });
 
   @override

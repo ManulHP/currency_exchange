@@ -37,18 +37,21 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
     debugPrint("#88547 amount ${event.amount}");
     emit(state.copyWith(
       amount: event.amount,
+      status: CurrencyStatus.initial,
     ));
   }
 
   FutureOr<void> _onGetTargetCountry(GetTargetCountry event, Emitter<CurrencyState> emit) {
     emit(state.copyWith(
       targetCode: event.targetCode,
+      status:   CurrencyStatus.initial,
     ));
   }
 
   FutureOr<void> _onGetBaseCountry(GetBaseCountry event, Emitter<CurrencyState> emit) {
     emit(state.copyWith(
       baseCode: event.baseCode,
+      status:   CurrencyStatus.initial,
     ));
   }
 
