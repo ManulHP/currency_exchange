@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'feature/presentation/home.dart';
 
 class CurrencyExchange extends StatefulWidget {
@@ -21,7 +20,7 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
           return MaterialApp(
             showPerformanceOverlay: false,
             debugShowCheckedModeBanner: false,
-            title: 'Song App',
+            title: 'Currency code',
             theme: ThemeData(
               primarySwatch: Colors.blue,
               textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
@@ -29,7 +28,7 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
             home: child,
           );
         },
-        child: const HomeScreen()
+        child: const HomeScreenWrapper()
     );
   }
 }

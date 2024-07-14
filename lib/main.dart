@@ -1,24 +1,31 @@
+import 'dart:async';
+
+import 'package:currency_exchange/core/bloc/bloc_observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'currency_exchange.dart';
+import 'injector.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  runZonedGuarded<Future<void>>(
+        () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      /// Injector setup
+      await setupLocators();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+      /// Setup global observer to monitor all blocs
+      Bloc.observer = CurrencyBlocObserver();
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const CurrencyExchange(),
-    );
-  }
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
+
+      runApp(const CurrencyExchange());
+    },
+        (error, stack) {
+      debugPrint("runZonedGuarded: Caught error in my root zone. $error");
+    },
+  );
 }
